@@ -35,3 +35,5 @@ The majority of the overall uplift appears to be driven by Mobile users.
 Deploy Version B globally for Mobile and Tablet users.
 
 Further investigation is recommended before deploying Version B exclusively for Desktop users, as no statistically significant improvement was observed in that segment.
+<img width="932" height="923" alt="image" src="https://github.com/user-attachments/assets/1983ceb6-2d28-4d90-9b19-fbb73b20a39f" />
+
