@@ -41,28 +41,28 @@ if uploaded_file:
         total_users
         * 100
     )
-      if page == "Overview":
+if page == "Overview":
 
-        st.header("Experiment Overview")
+    st.header("Experiment Overview")
 
-        col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
 
-        with col1:
-            st.metric("Total Users", total_users)
+with col1:
+    st.metric("Total Users", total_users)
 
-        with col2:
-            st.metric("Total Clicks", total_clicks)
+with col2:
+     st.metric("Total Clicks", total_clicks)
 
-        with col3:
-            st.metric(
-                "Overall CTR",
-                f"{overall_ctr:.2f}%"
+with col3:
+     st.metric(
+        "Overall CTR",
+    f"{overall_ctr:.2f}%"
             )  
     summary = (
     df.groupby('variant')
     .agg(
-        impressions=('click','count'),
-        clicks=('click','sum')
+    impressions=('click','count'),
+    clicks=('click','sum')
     )
 )
 
@@ -89,29 +89,29 @@ if page == "A/B Results":
 
     col1, col2 = st.columns(2)
 
-    with col1:
-        st.metric(
-            "Z Statistic",
-            round(z_stat, 4)
+ with col1:
+     st.metric(
+         "Z Statistic",
+         round(z_stat, 4)
         )
 
-    with col2:
-        st.metric(
-            "P Value",
-            round(p_value, 6)
+with col2:
+    st.metric(
+         "P Value",
+     round(p_value, 6)
         )
 
-    if p_value < 0.05:
-        st.success(
-            "Statistically Significant"
+if p_value < 0.05:
+      st.success(
+     "Statistically Significant"
         )
-    else:
-        st.error(
-            "Not Significant"
+ else:
+    st.error(
+    "Not Significant"
         )
 
     st.bar_chart(
-        summary['CTR (%)']
+    summary['CTR (%)']
     )
 
 
@@ -143,21 +143,21 @@ if page == "A/B Results":
 
     col1, col2 = st.columns(2)
 
-    with col1:
+ with col1:
         st.metric(
             "Z Statistic",
             round(z_stat,4)
         )
 
-    with col2:
+ with col2:
         st.metric(
             "P Value",
             round(p_value,6)
         )
 
-    if p_value < 0.05:
+ if p_value < 0.05:
         st.success("✅ Statistically Significant")
-    else:
+  else:
         st.error("❌ Not Significant")
 
     st.bar_chart(summary['CTR (%)'])
